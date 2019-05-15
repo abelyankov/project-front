@@ -1,0 +1,84 @@
+<ng-container *ngIf="!isLogged">
+  <div class="ui message" style="margin: 90px 50px 0 50px">
+    <div class="header">
+      Пожалуйста, пройдите авторизацию
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isLogged">
+  <ng-container *ngIf="!showAllRow">
+    <div class="ui segments" style="margin: 100px 50px 0 50px">
+      <div class="ui segment">
+        <h3 class="ui header">
+          {{tasks.title}}
+        </h3>
+
+        <div> {{tasks.description}}</div>
+      </div>
+
+      <div class="ui segment" style="background: rgba(0,0,0,0.03); padding-top: 0; padding-bottom: 0">
+        <table class="ui very basic compact table">
+          <tr>
+            <td style="width: 180px;">Статус:</td>
+            <td> {{tasks.status.status_name}}</td>
+          </tr>
+          <tr>
+            <td>Создана:</td>
+            <td>{{tasks.created_at}}</td>
+          </tr>
+          <tr>
+            <td>Адрес:</td>
+            <td>{{tasks.address}}</td>
+          </tr>
+          <tr>
+            <td>
+              Создана №
+            </td>
+            <td>
+              {{tasks.created_by.user}}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button class="ui green button" style="margin: 10px 50px 0 50px" (click)="postExecuteTask()">Записаться на задачу</button>
+  </ng-container>
+  <ng-container *ngIf="showAllRow">
+    <div class="ui segments" style="margin: 100px 50px 0 50px">
+      <div class="ui segment" style="background: rgba(0,0,0,0.03); padding-top: 0; padding-bottom: 0">
+        <table class="ui very basic compact table">
+          <tr>
+            <td>Заголовок</td>
+            <td><div class="ui input"><input type="text" [(ngModel)]="tasks.title" /></div> </td>
+          </tr>
+          <tr>
+            <td>Описание</td>
+            <td><div class="ui input"><input type="text" [(ngModel)]="tasks.description" /></div> </td>
+          </tr>
+          <tr>
+            <td style="width: 180px;">Статус:</td>
+            <td> New</td>
+          </tr>
+          <tr>
+            <td>Создана:</td>
+            <td>{{tasks.created_at}}</td>
+          </tr>
+          <tr>
+            <td>Адрес:</td>
+            <td><div class="ui input"><input type="text" [(ngModel)]="tasks.address" /></div> </td>
+          </tr>
+          <tr>
+            <td>
+              Создана №
+            </td>
+            <td>
+              2
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button class="ui blue button" style="margin: 10px 50px 0 50px" (click)="updateTask()">Изменить</button>
+    <button class="ui red button" style="margin: 10px 50px 0 50px" (click)="deleteTask()">Удалить</button>
+  </ng-container>
+</ng-container>

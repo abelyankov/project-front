@@ -1,0 +1,22 @@
+<div class="ui form grid" style="margin-top: 100px; margin-left: 50px">
+  <div class="row" >
+    <div class="twelve wide column">
+      <div class="field">
+        <label>Заголовок</label>
+        <input type="text" [(ngModel)]="title" />
+      </div>
+
+      <div class="field">
+        <label>Описание</label>
+        <input type="text" [(ngModel)]="description" />
+      </div>
+
+      <div class="field">
+        <label>Адерс</label>
+        <input type="text" [(ngModel)]="address" />
+      </div>
+    </div>
+  </div>
+    <button class="ui green button" style="margin-left: 10px" (click)="createTask()">Создать</button>
+</div>
+

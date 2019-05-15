@@ -8,8 +8,8 @@
         <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
           Задачи
         </a>
-        <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
-          Заявки на исполнение
+        <a class="item" href="/assignees_requests" style="color: rgb(0,182,207); font-size: 13pt">
+          Заявки на регистрацию
         </a>
         <button class="ui button"
                 (click)="logout()"
@@ -24,6 +24,9 @@
         <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
           Задачи
         </a>
+        <a class="item" href="/my_tasks" style="color: rgb(0,182,207); font-size: 13pt">
+          Мои задачи
+        </a>
         <button class="ui button"
                 (click)="logout()"
                 style="margin: 15px 15px 15px;
@@ -35,7 +38,7 @@
       </ng-container>
     </ng-container>
     <ng-container *ngIf="!isLogged">
-      <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
+      <a class="item" href="/registration" style="color: rgb(0,182,207); font-size: 13pt">
         Регистрация
       </a>
       <a href="/login">

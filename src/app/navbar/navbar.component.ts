@@ -23,10 +23,6 @@ export class NavbarComponent implements OnInit {
         this.showAllRow = true;
       }
     }
-
-    if (this.isLogged) {
-      // this.getTasks();
-    }
   }
 
   logout() {

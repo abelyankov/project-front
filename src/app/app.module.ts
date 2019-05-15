@@ -12,6 +12,11 @@ import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './AuthInterceptor';
 import {ProviderService} from './provider.service';
+import { TaskcreationComponent } from './taskcreation/taskcreation.component';
+import { TaskdetailComponent } from './taskdetail/taskdetail.component';
+import { BecomeAssigneesRequestComponent } from './become-assignees-request/become-assignees-request.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { MytasksComponent } from './mytasks/mytasks.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import {ProviderService} from './provider.service';
     MainComponent,
     LoginComponent,
     TasksComponent,
-    BarComponent
+    BarComponent,
+    TaskcreationComponent,
+    TaskdetailComponent,
+    BecomeAssigneesRequestComponent,
+    MytasksComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,14 +4,15 @@ import {ProviderService} from '../provider.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  selector: 'app-mytasks',
+  templateUrl: './mytasks.component.html',
+  styleUrls: ['./mytasks.component.css']
 })
-export class TasksComponent implements OnInit {
+export class MytasksComponent implements OnInit {
 
-  public tasks: ITasks[] = [];
+  public mytasks: ITasks[] = [];
   public isLogged = false;
+  public id = '';
   public showAllRow = false;
   constructor(private provider: ProviderService,  private router: Router ) { }
 
@@ -25,13 +26,14 @@ export class TasksComponent implements OnInit {
       }
     }
     if (this.isLogged) {
-      this.getTasks();
+      this.getMyTasks();
     }
   }
 
-  getTasks() {
-    this.provider.getTasks().then(res => {
-      this.tasks = res;
+  getMyTasks() {
+    this.id = localStorage.getItem('user_id');
+    this.provider.getMyTasks(this.id).then(res => {
+      this.mytasks = res;
     });
   }
 

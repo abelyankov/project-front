@@ -7,12 +7,12 @@
 </ng-container>
 <ng-container *ngIf="isLogged">
   <h1 class="ui header" style="margin: 100px 50px 0 50px ">
-    Задачи
+     Мои задачи
     <ng-container *ngIf="showAllRow">
-     <a class="ui right floated small button" href="/tasks/new" style="background-color: rgb(0,182,207); color: white" id="new-task-button">Новая задача</a>
+      <a class="ui right floated small button" href="/tasks/new" style="background-color: rgb(0,182,207); color: white" id="new-task-button">Новая задача</a>
     </ng-container>
   </h1>
-  <ng-container *ngFor="let task of tasks">
+  <ng-container *ngFor="let task of mytasks">
     <div class="ui segment task" style="margin: 10px 50px 0 50px">
       <div class="ui label" style="margin-left: 5px"><a routerLink="/tasks/{{task.id}}">Задача {{task.id}} </a> </div>
       <span class="ui top right attached label">{{task.status.status_name}}</span>

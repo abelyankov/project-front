@@ -1,0 +1,27 @@
+<ng-container *ngIf="!isLogged">
+  <div class="ui message" style="margin: 90px 50px 0 50px">
+    <div class="header">
+      Пожалуйста, пройдите авторизацию
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isLogged">
+  <h1 class="ui header" style="margin: 100px 50px 0 50px ">
+    Запросы на волонтерскую деятельность
+    <ng-container *ngIf="showAllRow">
+      <a class="ui right floated small button" href="/tasks/new" style="background-color: rgb(0,182,207); color: white" id="new-task-button">Новая задача</a>
+    </ng-container>
+  </h1>
+  <ng-container *ngFor="let bar of bars">
+    <div class="ui segment task" style="margin: 10px 50px 0 50px">
+      <div class="ui label" style="margin-left: 5px"><a routerLink="/tasks/{{bar.id}}">Запрос {{bar.id}} </a> </div>
+      <div style="margin-top: 10px; margin-left: 5px">
+        <div>Телефон: {{bar.phoneNumber}}</div>
+        <div>Адерс: {{bar.address}}</div>
+        <div>Судим: Не)</div>
+        <div>Эссе: {{bar.essay}}</div>
+      </div>
+    </div>
+    <button class="ui green button" style="margin-left: 50px; margin-top: 10px;" (click)="createAssignee(bar.phoneNumber, bar.address, bar.bin, bar.user)">Создать</button>
+  </ng-container>
+</ng-container>
