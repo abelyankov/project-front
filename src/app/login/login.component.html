@@ -1,26 +1,25 @@
-
 <div class="ui header" style="margin-top: 150px; text-align: center">
   <h1>Вход в личный кабинет</h1>
 </div>
-
-<div class="ui piled segment" style="margin-top: 50px; margin-left: 490px; margin-right: 500px; text-align: center;">
-  <form class="ui form" style="width: 500px;">
-    <div class="field">
-      <label>Имя пользователь</label>
-      <input type="text">
-    </div>
-    <div class="field">
-      <label>Пароль</label>
-      <input type="password">
-    </div>
-  </form>
-  <a href="/home">
-    <button class="ui button"
-            style="margin: 15px 15px 15px;
-                 color:white;
-                 background-color: rgb(255,14,70);
-                 border-radius: 20px;">
-      Войти
-    </button>
-  </a>
-</div>
+<ng-container *ngIf="!isLogged">
+  <div class="ui piled segment" style="margin-top: 50px; margin-left: 490px; margin-right: 500px; text-align: center;">
+    <form class="ui form" style="width: 500px;">
+      <div class="field">
+        <label>Имя пользователь</label>
+        <input [(ngModel)]="login" type="text" placeholder="Login" [ngModelOptions]="{standalone: true}" />
+      </div>
+      <div class="field">
+        <label>Пароль</label>
+        <input [(ngModel)]="password" type="password" placeholder="Password" [ngModelOptions]="{standalone: true}" />
+      </div>
+    </form>
+      <button class="ui button"
+              style="margin: 15px 15px 15px;
+              color:white;
+              background-color: rgb(255,14,70);
+              border-radius: 20px;"
+              (click)="auth()">
+        Войти
+      </button>
+  </div>
+</ng-container>

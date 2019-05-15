@@ -3,24 +3,50 @@
     <strong style="color: rgb(255,14,70)">CARE</strong><strong style=" color: rgb(0,182,207)">met</strong>
   </a>
   <div class="right menu">
-    <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
-      Задачи
-    </a>
-    <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
-      Заявки на исполнение
-    </a>
-    <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
-      Регистрация
-    </a>
-    <a href="/login">
-      <button class="ui button"
-
-              style="margin: 15px 15px 15px;
-               color:white;
-               background-color: rgb(255,14,70);
-               border-radius: 20px;">
-        Вход
-      </button>
-    </a>
+    <ng-container *ngIf="isLogged">
+      <ng-container *ngIf="showAllRow">
+        <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
+          Задачи
+        </a>
+        <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
+          Заявки на исполнение
+        </a>
+        <button class="ui button"
+                (click)="logout()"
+                style="margin: 15px 15px 15px;
+                color:white;
+                background-color: rgb(255,14,70);
+                border-radius: 20px;">
+          Выход
+        </button>
+      </ng-container>
+      <ng-container *ngIf="!showAllRow">
+        <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
+          Задачи
+        </a>
+        <button class="ui button"
+                (click)="logout()"
+                style="margin: 15px 15px 15px;
+                color:white;
+                background-color: rgb(255,14,70);
+                border-radius: 20px;">
+          Выход
+        </button>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!isLogged">
+      <a class="item" href="/tasks" style="color: rgb(0,182,207); font-size: 13pt">
+        Регистрация
+      </a>
+      <a href="/login">
+        <button class="ui button"
+                style="margin: 15px 15px 15px;
+                color:white;
+                background-color: rgb(255,14,70);
+                border-radius: 20px;">
+          Вход
+        </button>
+      </a>
+    </ng-container>
   </div>
 </div>
